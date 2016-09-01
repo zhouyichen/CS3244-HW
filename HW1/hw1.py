@@ -56,13 +56,13 @@ def lr(xn, yn, w, eta, index=-1):
 def calculate_error(xn, yn, w):
     N = xn.shape[0]
     e = np.sum(np.log(1 + np.exp(np.multiply(-yn, (np.dot(xn, w)))))) / N
-    print(e)
+    # print(e)
     return e
 
 def evaluate_stochastic(eta, iteration):
 	w = np.zeros([M, 1])
 	for i in range(iteration):
-	    calculate_error(X_train, Y_train, w)
+	    # calculate_error(X_train, Y_train, w)
 	    w = lr(X_train, Y_train, w, eta, -1)
 	E_out = calculate_error(X_test, Y_test, w)
 	return (w, E_out)
@@ -70,7 +70,7 @@ def evaluate_stochastic(eta, iteration):
 def evaluate_deterministic(eta, iteration):
 	w = np.zeros([M, 1])
 	for i in range(iteration):
-	    calculate_error(X_train, Y_train, w)
+	    # calculate_error(X_train, Y_train, w)
 	    w = lr(X_train, Y_train, w, eta, i % N)
 	E_out = calculate_error(X_test, Y_test, w)
 	return (w, E_out)

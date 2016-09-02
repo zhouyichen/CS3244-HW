@@ -59,12 +59,23 @@ def calculate_error(xn, yn, w):
     # print(e)
     return e
 
+def sigmoid(s):
+	exp_s = np.exp(s)
+	return np.divide(exp_s, (1 + exp_s))
+
+def out_error(xn, yn, w):
+    N = xn.shape[0]
+    prediction = (sigmoid(np.dot(xn, w)) > 0.5)
+    real_class = (yn > 0)
+    e = sum(prediction != real_class) / N
+    return e
+
 def evaluate_stochastic(eta, iteration):
 	w = np.zeros([M, 1])
 	for i in range(iteration):
 	    # calculate_error(X_train, Y_train, w)
 	    w = lr(X_train, Y_train, w, eta, -1)
-	E_out = calculate_error(X_test, Y_test, w)
+	E_out = out_error(X_test, Y_test, w)
 	return (w, E_out)
 
 def evaluate_deterministic(eta, iteration):
@@ -72,7 +83,7 @@ def evaluate_deterministic(eta, iteration):
 	for i in range(iteration):
 	    # calculate_error(X_train, Y_train, w)
 	    w = lr(X_train, Y_train, w, eta, i % N)
-	E_out = calculate_error(X_test, Y_test, w)
+	E_out = out_error(X_test, Y_test, w)
 	return (w, E_out)
 
 w, E_out = evaluate_stochastic(0.05, 2333)

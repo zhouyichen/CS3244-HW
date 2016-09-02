@@ -59,10 +59,12 @@ def calculate_error(xn, yn, w):
     # print(e)
     return e
 
+# sigmoid function which can be applied to a vector
 def sigmoid(s):
 	exp_s = np.exp(s)
 	return np.divide(exp_s, (1 + exp_s))
 
+# calculates the E_out given data, classification, and weights
 def out_error(xn, yn, w):
     N = xn.shape[0]
     prediction = (sigmoid(np.dot(xn, w)) > 0.5)
@@ -71,6 +73,15 @@ def out_error(xn, yn, w):
     return e
 
 def evaluate_stochastic(eta, iteration):
+	'''
+		Run SGD using X_train and Y_train
+		Input:
+			eta: step size
+			iteration: number of iteration of SGD
+		output:
+			w : final weights
+			E_out: Error for out samples using X_test and Y_test
+	'''
 	w = np.zeros([M, 1])
 	for i in range(iteration):
 	    # calculate_error(X_train, Y_train, w)
@@ -79,6 +90,15 @@ def evaluate_stochastic(eta, iteration):
 	return (w, E_out)
 
 def evaluate_deterministic(eta, iteration):
+	'''
+		Run deterministic gradient descent using X_train and Y_train
+		Input:
+			eta: step size
+			iteration: number of iteration of gradient descent
+		output:
+			w : final weights
+			E_out: Error for out samples using X_test and Y_test
+	'''
 	w = np.zeros([M, 1])
 	for i in range(iteration):
 	    # calculate_error(X_train, Y_train, w)

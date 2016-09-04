@@ -84,6 +84,26 @@
 		\part What parameter in the perceptron directly affects how many borderline messages end up classified as spam?
 	\end{parts}
 
+	\question
+	Consider a coin tossing experiment. You toss a coin 100 times, with the result of heads 70 times and tails 30 times. We denote the probability of heads of this coin as Θ. Now consider a coin toss.
+	\begin{parts}
+		\part Build a model using maximum lilkelihood estimation (MLE) to infer $\Theta$.
+		\begin{solution}
+			Assume the coin has a probability of $\Theta$ to land in head. The probability of 70 heads in 100 tosses is:
+			$$P(70 \mid \Theta, 100) = \binom{100}{70}\Theta^{70}(1-\Theta)^{30}$$
+			We want to maximise this probability:
+			\begin{equation*} 
+		      \begin{split}
+		      	\max_{0 \leq \Theta \leq 1}L(\Theta)\equiv &\max_{0 \leq \Theta \leq 1}P(70 \mid \Theta, 100)\\
+		      	\equiv & \max_{0 \leq \Theta \leq 1}\binom{100}{70}\Theta^{70}(1-\Theta)^{30}\\
+		      	\equiv & \max_{0 \leq \Theta \leq 1} \ln [\binom{100}{70}\Theta^{70}(1-\Theta)^{30}]\\
+		      	\equiv & \max_{0 \leq \Theta \leq 1} [\ln \binom{100}{70} + \ln\Theta^{70} + \ln(1-\Theta)^{30})]\\
+		      	\equiv & \max_{0 \leq \Theta \leq 1} [ 70 \ln\Theta+30 \ln(1-\Theta)] \Rightarrow \frac{\mathrm{d} L}{\mathrm{d} \Theta} = 0 \\
+		      	\equiv & \frac{70}{\Theta} + \frac{30}{1 - \Theta} = 0 \Rightarrow \Theta = 0.7\\
+		      \end{split}
+		    \end{equation*}
+		\end{solution}
+	\end{parts}
 
 \end{questions}
 \end{document}

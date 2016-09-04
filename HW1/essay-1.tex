@@ -103,6 +103,13 @@
 		      \end{split}
 		    \end{equation*}
 		\end{solution}
+		\part Can we judge that this is an unfair coin? Explain your answer.
+		\begin{solution}
+			Yes, we can say this is an unfair coin with high confidence. \\
+			Assume the coin is fair, i.e. $\Theta = 0.5$. The probability of 70 or more heads in 100 tosses is:
+			$$ \frac{1}{2^{100}} \cdot (\binom{100}{70} + \binom{100}{71} + \cdots + \binom{100}{100}) \approx 3.925 \times 10^{-5}$$
+			Which is very small, therefore the assumption of the coin is fair is very unlikely the case.
+		\end{solution}
 	\end{parts}
 
 \end{questions}

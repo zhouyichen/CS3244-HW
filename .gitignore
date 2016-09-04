@@ -1,3 +1,6 @@
 *.dat
 *.pdf
 *.ipynb_checkpoints*
+*.aux
+*.dvi
+*.log

@@ -117,7 +117,7 @@
 	\end{parts}
 
 	\question
-	In the programming logistic regression, part (c), we did away with the stochastic idea of SGD and substituted a round-robin version, which deterministically uses the next point in turn to perform the gradient descent. Describe whether you think this is a good robust idea or not for datasets in general.
+	In the programming logistic regression, part (c), Compare our round-robin version of gradient descent which deterministically uses the next point in turn to perform the gradient descent, versus the standard, stochastic form which chooses a single point at random for an iteration. Describe whether you think this is a good robust idea or not for datasets in general.
 	\begin{solution}
 		No, random selection is still more robust.\\
 		In a real world problem, the dataset might be sorted in some particular order, and it might cause

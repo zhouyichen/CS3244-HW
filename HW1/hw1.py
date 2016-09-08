@@ -33,23 +33,21 @@ X_test, Y_test = read_data_file("hw1-test.dat")
 
 # LR code
 
-def lr(xn, yn, w, eta, index=-1):
+def lr(x, y, w, eta):
 	'''
 	    Input: 
 	        xn : Data points
-	        yn : Classification of the previous data points, an Nx1 vector. 
+	        yn : Classification of the previous data points
 	        w  : initial weight
 	        eta : step size
-	        index: index of the datapoint chosen, -1 means it will be random
 	    Output: 
 	        w : updated weight
 	'''
-	N = xn.shape[0]
-	if index == -1: # stochastic
-	    index = nr.randint(N)
-	x = xn[index, :]
-	y = yn[index]
-	g = y * x / (1 + np.exp(y * (x.dot(w))))
+	n = x.shape[0]
+	g = np.sum(
+			np.multiply(x, y) / (1 + np.exp(np.multiply(y, (np.dot(x, w))))),
+			0
+		) / n
 	w = w + eta * g.T
 	return w
     

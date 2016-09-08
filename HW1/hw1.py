@@ -73,9 +73,9 @@ def out_error(xn, yn, w):
 	e = np.sum(prediction != real_class) / N
 	return e
 
-def evaluate_stochastic(eta, iteration):
+def evaluate_batch_GD(eta, iteration):
 	'''
-		Run SGD using X_train and Y_train
+		Run batch GD using X_train and Y_train
 		Input:
 			eta: step size
 			iteration: number of iteration of SGD
@@ -86,9 +86,9 @@ def evaluate_stochastic(eta, iteration):
 	w = np.zeros([M, 1])
 	for i in range(iteration):
 	    # calculate_error(X_train, Y_train, w)
-	    w = lr(X_train, Y_train, w, eta, -1)
+	    w = lr(X_train, Y_train, w, eta)
 	E_out = out_error(X_test, Y_test, w)
-	return (w, E_out)
+	return (w.T.tolist()[0], E_out)
 
 def evaluate_deterministic(eta, iteration):
 	'''
@@ -103,18 +103,19 @@ def evaluate_deterministic(eta, iteration):
 	w = np.zeros([M, 1])
 	for i in range(iteration):
 		# calculate_error(X_train, Y_train, w)
-		w = lr(X_train, Y_train, w, eta, i % N)
+		index = i % N
+		w = lr(np.mat(X_train[index, :]), Y_train[index], w, eta)
 	E_out = out_error(X_test, Y_test, w)
-	return (w, E_out)
+	return (w.T.tolist()[0], E_out)
 
 
-w, E_out = evaluate_stochastic(0.05, 2333)
+w, E_out = evaluate_batch_GD(0.05, 2333)
 print("a: eta = 0.05, T = 2333")
 print("Eventual weight vector:")
 print(w)
 print("E_out:", E_out, "\n")
 
-w, E_out = evaluate_stochastic(0.005, 2333)
+w, E_out = evaluate_batch_GD(0.005, 2333)
 print("b: eta = 0.005, T = 2333")
 print("Eventual weight vector:")
 print(w)

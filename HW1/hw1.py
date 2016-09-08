@@ -22,6 +22,7 @@ def read_data_file(file_name):
 	f = open(file_name, "r")
 	mat = np.loadtxt(StringIO(f.read()))
 	X = mat[:, :-1]
+	X = np.insert(X, 0, 1, axis = 1)
 	y = np.matrix(mat[:, -1]).T
 	return (X, y)
 

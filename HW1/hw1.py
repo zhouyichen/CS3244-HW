@@ -44,11 +44,11 @@ def lr(x, y, w, eta):
 	        w : updated weight
 	'''
 	n = x.shape[0]
-	g = np.sum(
+	g = - np.sum(
 			np.multiply(x, y) / (1 + np.exp(np.multiply(y, (np.dot(x, w))))),
 			0
 		) / n
-	w = w + eta * g.T
+	w = w - eta * g.T
 	return w
     
 # Evaluation code

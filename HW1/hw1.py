@@ -134,3 +134,40 @@ print(w)
 print("E_out:", E_out, "\n")
 
 # Plotting (if any) code
+# obtain the separator function from given weight
+def separator_function(w):
+	def f(x):
+		b = - w[0, 0] / w[2, 0]
+		a = - w[1, 0] / w[2, 0]
+		return a * x + b
+	return f
+
+def part_d():
+	x = np.linspace(0,1)
+	pl.figure()
+	axes = pl.gca()
+	axes.set_xlim([-0.2, 1.2])
+	axes.set_ylim([-0.2, 1.2])
+
+	# draw the points
+	for i in range(N):
+		if Y_train[i] > 0:
+			pl.plot(X_train[i, 1], X_train[i, 2], 'ro')
+		else:
+			pl.plot(X_train[i, 1], X_train[i, 2], 'bo')
+
+	# draw the separator at each 2333 step
+	w = np.zeros([M, 1])
+	for i in range(1, 2333 + 1):
+	    w = lr(X_train, Y_train, w, 0.05)
+	    if not i % 333:
+	    	color = str(0.8 - (i / 333 - 1) * (0.8 / 7))
+	    	print(color)
+	    	pl.plot(x, separator_function(w)(x), color)
+
+	# draw the separator after the last iteration
+	pl.plot(x, separator_function(w)(x), 'k')
+	pl.title('Part(d)')
+	pl.show()
+
+part_d()

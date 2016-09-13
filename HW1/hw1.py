@@ -162,7 +162,6 @@ def part_d():
 	    w = lr(X_train, Y_train, w, 0.05)
 	    if not i % 333:
 	    	color = str(0.8 - (i / 333 - 1) * (0.8 / 7))
-	    	print(color)
 	    	pl.plot(x, separator_function(w)(x), color)
 
 	# draw the separator after the last iteration

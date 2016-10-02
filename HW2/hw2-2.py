@@ -17,7 +17,6 @@ def read_q2_file(file_name, rows):
 				a, b = elem.split(':')
 				X[i, int(a) - 1] = float(b)
 			i += 1
-			break
 	return (X, Y)
 		
 
@@ -62,3 +61,13 @@ def run_svm_and_write_output(q_number, dataTrain, labelTrain, dataTest, labelTes
 
 q2_train_data, q2_train_lable = read_q2_file('hw2-2-train.txt', 6000)
 q2_test_data, q2_test_lable = read_q2_file('hw2-2-test.txt', 1000)
+
+print('Problem 2d')
+print('Linear Kernel:')
+run_svm_and_write_output('2d', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'linear', 'auto', 1)
+
+print('\nProblem 2e')
+print('RBF Kernel:')
+run_svm_and_write_output('2e1', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'rbf', 0.001, 1)
+print('\nPolynomial Kernel:')
+run_svm_and_write_output('2e2', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'poly', 1.0, 2)

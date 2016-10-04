@@ -70,6 +70,20 @@
 \nline
 
 \begin{questions}
+	\question
+	Consider a binary classification problem. Let us denote the input set as \{$x_{n}, y_{n}$\} where $x_{n}$ is the data point and $y_{n} \in$ \{-1,+1\} is the corresponding class label. Further, misclassifying a positive class data point costs k times more than misclassifying a negative class data point. Rewrite the SVM optimization function to model this constraint.
+	\begin{solution}
+		Soft margin optimization function :\\
+		Minimize $\frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{n=1}^{N}k^{\frac{y_{n} + 1}{2}}\xi _{n}$ \\
+		Subject to $y_{n}(\mathbf{w}^{T}\mathbf{x} + b) \geq 1 - \xi_{n}$ and $\xi_{n} \geq 0$ for n = 1,2,...,N,
+		$\mathbf{w} \in \mathbb{R}^{d}, b \in \mathbb{R}, \xi \in \mathbb{R}^{N}$ \\
+		Lagrange Formulation:\\
+		Maximise $ \mathcal{L}(\mathbf{\alpha}) = \sum_{n=1}^{N}\alpha_{n} - \frac{1}{2}\sum_{n=1}^{N}\sum_{m=1}^{N}y_{n}y_{m}\alpha_{n}\alpha_{m}\mathbf{x}_{n}^{T}\mathbf{x}_{m}$\\
+		w.r.t $\mathbf{\alpha} $
+		subject to $0 \leq \alpha_{n} \leq C k^{\frac{y_{n} + 1}{2}}$ for n = 1,2,...,N and $\sum_{n=1}^{N}a_{n}y_{n} = 0$ \\
+		$\Rightarrow \mathbf{w} =\sum_{n=1}^{N}\alpha_{n}y_{n}\mathbf{x}_{n} $ minimises $\frac{1}{2}\mathbf{w}^{T}\mathbf{w} + C \sum_{n=1}^{N}k^{\frac{y_{n} + 1}{2}}\xi _{n}$
+	\end{solution}
+	
 
 \end{questions}
 \end{document}

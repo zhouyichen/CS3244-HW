@@ -64,7 +64,7 @@ for s in subset_sizes:
 	print('Subset size =', s, ':')
 	sub_train_data = q1_train_data[:s]
 	sub_train_lable = q1_train_lable[:s]
-	run_svm_and_write_output('1a_'+str(s), sub_train_data, sub_train_lable, q1_test_data, q1_test_lable, 1, 'linear', 'auto', 1)
+	run_svm_and_write_output('1a_'+str(s), sub_train_data, sub_train_lable, q1_test_data, q1_test_lable, 1, 'linear', 'auto', 1, False)
 	print()
 
 print('\nProblem 1b')
@@ -72,15 +72,15 @@ C_list = [0.0001, 0.001, 0.01, 1.0]
 for C in C_list:
 	print('C =', C)
 	print('Q = 2:')
-	run_svm_and_write_output('1b_2_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'poly', 1.0, 2)
+	run_svm_and_write_output('1b_2_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'poly', 1.0, 2, False)
 	print('Q = 5:')
-	run_svm_and_write_output('1b_5_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'poly', 1.0, 5)
+	run_svm_and_write_output('1b_5_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'poly', 1.0, 5, False)
 	print()
 	
 print('\nProblem 1c')
 C_list = [0.01, 1, 100, 10000, 1000000]
 for C in C_list:
 	print('C =', C)
-	run_svm_and_write_output('1c_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'rbf', 1.0, 1)
+	run_svm_and_write_output('1c_'+str(C), q1_train_data, q1_train_lable, q1_test_data, q1_test_lable, C, 'rbf', 1.0, 1, False)
 	print()
 

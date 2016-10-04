@@ -1,5 +1,4 @@
 import numpy as np
-from io import StringIO
 from sklearn import svm
 import csv
 
@@ -68,6 +67,6 @@ run_svm_and_write_output('2d', q2_train_data, q2_train_lable, q2_test_data, q2_t
 
 print('\nProblem 2e')
 print('RBF Kernel:')
-run_svm_and_write_output('2e1', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'rbf', 0.001, 1)
+run_svm_and_write_output('2e1', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'rbf', 0.001, 1, False)
 print('\nPolynomial Kernel:')
-run_svm_and_write_output('2e2', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'poly', 1.0, 2)
+run_svm_and_write_output('2e2', q2_train_data, q2_train_lable, q2_test_data, q2_test_lable, 1, 'poly', 1.0, 2, False)

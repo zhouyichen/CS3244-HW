@@ -1,0 +1,5 @@
+Kernel: linear
+Cost: 1
+Number of Support Vectors: 28
+Train Accuracy: 0.996156310058
+Test Accuracy: 0.978773584906

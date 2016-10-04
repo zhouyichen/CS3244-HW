@@ -112,6 +112,29 @@
 		\end{solution}
 	\end{parts}
 
+	\question
+	A kernel is valid if it corresponds to a scalar product in some (perhaps infinite dimensional) feature space. 
+	Remember a necessary and sufficient condition for a function $K(\mathbf{x}, \mathbf{x})$ to be a valid kernel is that associated Gram matrix, 
+	whose elements are given by $K(\mathbf{x_{n}},\mathbf{x_{m}})$, should be positive semi-definite for all possible choices of the set x. 
+	Show whether the following are also kernels:
+	\begin{parts}
+		\part $K(\mathbf{x},\mathbf{x}') = c\langle \mathbf{x},\mathbf{x}'\rangle$
+		\begin{solution}\\
+		Assume $c > 0$, then it is a polynomial with non-negative coefficients.
+		By property 3 from the tutorial, $K(\mathbf{x},\mathbf{x}') = c\langle \mathbf{x},\mathbf{x}'\rangle$ is a valid kernel.
+		\end{solution}
+		\part $K(\mathbf{x},\mathbf{x}') = \langle \mathbf{x},\mathbf{x}'\rangle ^{2} + \mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}}$
+		\begin{solution}\\
+		$\langle \mathbf{x},\mathbf{x}'\rangle ^{2}$ is a valid kernel by Property 2 from the tutorial.\\
+		$\mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}}$
+		is just a constant which is equivalent to 
+		$\mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}} \langle \mathbf{x},\mathbf{x}'\rangle ^{0}$
+		which is a valid kernel by Property 3.\\
+		Therefore $\langle \mathbf{x},\mathbf{x}'\rangle ^{2} + \mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}}$
+		is a valid kernel by Property 1.
+		\end{solution}	
+	\end{parts}
+
 
 
 \end{questions}

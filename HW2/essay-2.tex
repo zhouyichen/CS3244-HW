@@ -95,7 +95,8 @@
 		\end{solution}
 		\part Construct the weight vector of the maximum margin hyper-plane by inspection and identify the support vectors.
 		\begin{solution}
-			The support vectors are: (1, 1), (2, 0), (1, 0), and (0, 1). The maximum margin hyper-plane is $2x_{1} + 2x_{2} - 3 = 0$
+			The support vectors are: (1, 1), (2, 0), (1, 0), and (0, 1). The maximum margin hyper-plane is $2x_{1} + 2x_{2} - 3 = 0$.
+			The weight vector is (2, 2).
 		\end{solution}
 		\part If you remove one of the support vectors, does the size of the optimal margin decrease, stay the same, or increase? Explain.
 		\begin{solution}
@@ -127,7 +128,7 @@
 		\begin{solution}\\
 		$\langle \mathbf{x},\mathbf{x}'\rangle ^{2}$ is a valid kernel by Property 2 from the tutorial.\\
 		$\mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}}$
-		is just a constant which is equivalent to 
+		is just a positive constant which is equivalent to 
 		$\mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}} \langle \mathbf{x},\mathbf{x}'\rangle ^{0}$
 		which is a valid kernel by Property 3.\\
 		Therefore $\langle \mathbf{x},\mathbf{x}'\rangle ^{2} + \mathbf{e}^{-\left \| \mathbf{x} \right \|^{2}} \mathbf{e}^{-\left \| \mathbf{x}' \right \|^{2}}$

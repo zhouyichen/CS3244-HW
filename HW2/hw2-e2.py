@@ -13,7 +13,7 @@ X = np.array([
 
 Y = np.array([1, 1, 1, -1, -1, -1])
 
-pl.rcParams['figure.figsize'] = (12.0, 10.0)
+pl.rcParams['figure.figsize'] = (4.0, 4.0)
 pl.figure()
 axes = pl.gca()
 axes.set_xlim([-0.5, 2.5])
@@ -24,5 +24,11 @@ for i in range(6):
 		pl.plot(X[i, 0], X[i, 1], 'ro')
 	else:
 		pl.plot(X[i, 0], X[i, 1], 'bo')
+
+x = np.linspace(-1,3)
+
+def separator_function(x):
+	return - x + 1.5
+pl.plot(x, separator_function(x), 'k')
 
 pl.show()
